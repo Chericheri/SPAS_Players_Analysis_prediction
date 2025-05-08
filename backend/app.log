@@ -1,0 +1,12 @@
+2025-05-09 00:00:56,610 - __main__ - INFO - Initializing database...
+2025-05-09 00:00:56,651 - __main__ - INFO - Database initialized with 2671 players
+2025-05-09 00:00:56,675 - werkzeug - WARNING -  * Debugger is active!
+2025-05-09 00:00:56,677 - werkzeug - INFO -  * Debugger PIN: 605-499-700
+2025-05-09 00:00:58,588 - __main__ - ERROR - HTTP Error: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-09 00:00:58,588 - __main__ - ERROR - HTTP Error: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-09 00:00:58,588 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 00:00:58] "[33mGET /api/admin/check HTTP/1.1[0m" 404 -
+2025-05-09 00:00:58,588 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 00:00:58] "[33mGET /api/stats/overview HTTP/1.1[0m" 404 -
+2025-05-09 00:00:58,848 - __main__ - ERROR - HTTP Error: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-05-09 00:00:58,848 - werkzeug - INFO - 127.0.0.1 - - [09/May/2025 00:00:58] "[33mGET /api/stats HTTP/1.1[0m" 404 -
+2025-05-09 00:02:19,293 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\SPAS_Players_Analysis & prediction\\backend\\app.py', reloading
+2025-05-09 00:02:19,293 - werkzeug - INFO -  * Detected change in 'C:\\xampp\\htdocs\\SPAS_Players_Analysis & prediction\\backend\\app.py', reloading

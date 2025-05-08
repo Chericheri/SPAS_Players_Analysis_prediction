@@ -1,0 +1,285 @@
+/* Consolidated SPAS Styles for all frontend pages */
+:root {
+    --sidebar-width: 250px;
+    --primary-color: #1f1d47;
+    --secondary-color: #26cc35;
+    --transition-speed: 0.3s;
+}
+
+body, html {
+    width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hide off-screen by default */
+    background-color: var(--primary-color);
+    overflow-x: hidden;
+    transition: left var(--transition-speed);
+    z-index: 1000;
+    padding-top: 60px;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+.sidebar.active {
+    left: 0; /* Slide in to be flush with the left edge */
+}
+.sidebar a {
+    padding: 12px 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    display: block;
+    transition: 0.2s;
+    border-left: 3px solid transparent;
+}
+.sidebar a:hover {
+    color: var(--secondary-color);
+    background-color: rgba(38, 204, 53, 0.1);
+    border-left: 3px solid var(--secondary-color);
+}
+.sidebar a.active {
+    color: var(--secondary-color);
+    border-left: 3px solid var(--secondary-color);
+}
+.sidebar i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 900;
+}
+.openbtn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+/* Main Content Styles */
+.main-content {
+    box-sizing: border-box;
+    max-width: 100vw;
+    width: 100vw;
+    padding: 20px;
+    transition: margin-left var(--transition-speed), width var(--transition-speed);
+    margin-left: 0;
+    overflow-x: auto;
+}
+
+/* On large screens, optionally push content (if you want) */
+@media (min-width: 992px) {
+    .sidebar.active ~ .main-content {
+        margin-left: var(--sidebar-width);
+        width: calc(100vw - var(--sidebar-width));
+    }
+}
+
+/* On small screens, sidebar overlays content, main-content stays full width */
+@media (max-width: 991.98px) {
+    .sidebar {
+        left: -250px;
+    }
+    .sidebar.active {
+        left: 0;
+    }
+    .main-content {
+        margin-left: 0 !important;
+        width: 100vw !important;
+    }
+}
+
+/* Card Styles */
+.stats-card, .table-section, .player-stats, .comparison-section {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+    width: 100%;
+    overflow-x: auto;
+}
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.stats-card h3 {
+    color: #2c3e50;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+.stats-card p {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: bold;
+    margin: 0;
+}
+
+.player-card, .stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.stat-card {
+    text-align: center;
+}
+.stat-card h5 {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+.stat-card p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+/* Chart Containers */
+.chart-container {
+    background: white;
+    border-radius: 10px;
+    padding: 0px;
+    margin-bottom: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    width: 100%;
+    min-height: 50px;
+    overflow: hidden;
+}
+.chart-container canvas {
+    width: 100% !important;
+    max-height: 100% !important;
+    min-height: 250px !important;
+    margin-top: 20px;
+}
+
+/* DataTables Overrides */
+.dataTables_wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 200px;
+    }
+    .stats-card, .chart-container, .table-section, .player-stats, .comparison-section {
+        padding: 15px;
+    }
+    .player-card, .stat-card {
+        padding: 10px;
+    }
+    .stat-card h5 {
+        font-size: 0.8rem;
+    }
+    .stat-card p {
+        font-size: 1rem;
+    }
+    .sidebar.active ~ .main-content {
+        margin-left: 200px;
+    }
+}
+@media (max-width: 576px) {
+    :root {
+        --sidebar-width: 180px;
+    }
+    .main-content {
+        padding: 15px;
+    }
+    .stats-card h3 {
+        font-size: 0.9rem;
+    }
+    .stats-card p {
+        font-size: 1.2rem;
+    }
+    .table-section, .player-stats, .comparison-section {
+        padding: 15px;
+    }
+    .chart-container {
+        min-height: 250px;
+    }
+}
+
+/* Ensure content doesn't get squished */
+.row > [class*="col-"] {
+    min-width: 0;
+}
+
+/* Center all headings */
+h3, h4, h2, h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Update button styles */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Update table header */
+.table-dark {
+    background-color: var(--primary-color) !important;
+}
+
+/* Update comparison section */
+.comparison-controls {
+    text-align: center;
+}
+.comparison-controls select {
+    border-color: var(--primary-color);
+}
+.comparison-controls select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(38, 204, 53, 0.25);
+}
+
+/* Initially hide comparison table */
+#comparison-details {
+    display: none;
+}
+#comparison-details.active {
+    display: block;
+}
+
+/* Analytics page specific */
+.chart-container {
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+canvas {
+    width: 100% !important;
+    height: 400px !important;
+    margin-top: 20px;
+}
+
+#comparison-charts {
+    display: none;
+} 
