@@ -1,5 +1,5 @@
 ⚽ SPAS (Soccer Player Analysis & Prediction System)  
-Professional-Grade Football Analytics Platform  
+A comprehensive analytics platform for evaluating football player performance and predicting future potential using statistical modeling and machine learning.
 Used by scouts, analysts, and clubs to identify talent and optimize performance
 
 Python
@@ -43,7 +43,7 @@ Data Pipeline Architecture
 mermaid
 graph LR
 A[APIs/FBref] --> B(Airflow Scheduler)
-B --> C{{SQL}}
-C --> D[Feature Engineering]
-D --> E[Model Training]
-E --> F[JavaScripT/html Dashboard]
+B --> C(SQL)
+C --> D(Feature Engineering)
+D --> E(Model Training)
+E --> F(JavaScripT/html Dashboard)
